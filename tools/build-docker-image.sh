@@ -1,5 +1,5 @@
 #!/bin/bash -
 
-# Build Computational-Thinking-with-CPP Docker image
+# Build computational-thinking-with-cpp Docker image
 
-docker build -t Computational-Thinking-with-CPP .
+docker build -t computational-thinking-with-cpp .

@@ -80,7 +80,7 @@ git clone https://github.com/PacktPublishing/Computational-Thinking-with-CPP.git
 
 * [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
-* Build `Computational-Thinking-with-CPP` Docker image
+* Build `computational-thinking-with-cpp` Docker image
 
 ```bash
 cd tools
@@ -88,7 +88,7 @@ cd tools
 cd ..
 ```
 
-* Run `Computational-Thinking-with-CPP` Docker container
+* Run `computational-thinking-with-cpp` Docker container
 
 ```bash
 ./run-docker-image.sh
@@ -107,7 +107,7 @@ cmake --build ./build
 ./application_name
 ```
 
-* Exit `Computational-Thinking-with-CPP` Docker container
+* Exit `computational-thinking-with-cpp` Docker container
 
 ```bash
 exit
@@ -192,7 +192,7 @@ git clone https://github.com/PacktPublishing/Computational-Thinking-with-CPP.git
 
 * Run Docker Desktop
 
-* Build `Computational-Thinking-with-CPP` Docker image
+* Build `computational-thinking-with-cpp` Docker image
 
 ```bash
 cd tools
@@ -200,7 +200,7 @@ cd tools
 cd ..
 ```
 
-* Run `Computational-Thinking-with-CPP` Docker container
+* Run `computational-thinking-with-cpp` Docker container
 
 ```bash
 ./run-docker-image.sh
@@ -219,7 +219,7 @@ cmake --build ./build
 ./application_name
 ```
 
-* Exit `Computational-Thinking-with-CPP` Docker container
+* Exit `computational-thinking-with-cpp` Docker container
 
 ```bash
 exit
@@ -286,18 +286,18 @@ git clone https://github.com/PacktPublishing/Computational-Thinking-with-CPP.git
 
 * Run Docker Desktop
 
-* Build `Computational-Thinking-with-CPP` Docker image
+* Build `computational-thinking-with-cpp` Docker image
 
 ```bash
 cd tools
-docker build -t Computational-Thinking-with-CPP .
+docker build -t computational-thinking-with-cpp .
 cd ..
 ```
 
-* Run `Computational-Thinking-with-CPP` Docker container
+* Run `computational-thinking-with-cpp` Docker container
 
 ```bash
-docker run --rm -it --volume "$(pwd):/root" Computational-Thinking-with-CPP:latest
+docker run --rm -it --volume "$(pwd):/root" computational-thinking-with-cpp:latest
 ```
 
 * Build the applications in folder with the `CMakeLists.txt` file
@@ -314,7 +314,7 @@ cd build
 ./application_name
 ```
 
-* Exit `Computational-Thinking-with-CPP` Docker container
+* Exit `computational-thinking-with-cpp` Docker container
 
 ```bash
 exit
