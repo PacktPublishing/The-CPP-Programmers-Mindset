@@ -11,7 +11,7 @@ apt-get update && apt-get install -y \
 
 cd /usr/src/googletest || exit
 
-cmake -B ./build
+cmake --fresh -B ./build
 cmake --build ./build
 cmake --install ./build
 cmake --build ./build --target clean
