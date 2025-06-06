@@ -13,8 +13,13 @@ brew update && brew install \
   boost \
   eigen \
   googletest \
-  git \
   cpplint \
   cmake-lint \
+  google-benchmark \
+  llvm \
+  libomp \
+  openblas \
+  spdlog \
+  rapidjson \
   tree &&
   brew autoremove && brew cleanup

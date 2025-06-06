@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.28)
 project(ct4)
 
 include(GNUInstallDirs)
@@ -15,7 +15,14 @@ find_package(BLAS)
 
 find_package(Threads REQUIRED)
 
-set(OpenMP_RUNTIME_MSVC experimental) # needed to use OpenMP > 2.0
+
+# Set the CMAKE_PREFIX_PATH if necessary
+if (APPLE)
+    set(CMAKE_PREFIX_PATH "/opt/homebrew/opt/libomp" CACHE PATH "Path to OpenMP")
+    message("Path to Apple OpenMP: ${CMAKE_PREFIX_PATH}")
+endif ()
+
+#set(OpenMP_RUNTIME_MSVC experimental) # needed to use OpenMP > 2.0
 find_package(OpenMP REQUIRED COMPONENTS CXX)
 
 
@@ -148,7 +155,6 @@ endif ()
 
 add_library(clamp_loop STATIC clamp_loop.cpp
         clamp_loop.h)
-
 
 
 add_executable(bench_clamp_loop bench_clamp_loop.cpp)
