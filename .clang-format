@@ -1,0 +1,6 @@
+BasedOnStyle: Google
+ColumnLimit: 80
+UseTab: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
