@@ -18,12 +18,9 @@ C++23 projects
     - [Windows 10/11 platform Ubuntu on WSL2 build](#windows-platform-wsl2-build)
     - [Windows 10/11 platform build in a Docker environment](#windows-platform-docker-environment)
 - [Remove All Docker Images](#remove-all-docker-images)
-- [Recommended C++ Style Guides](#recommended-c++-style-guides)
-- [Recommended C++ code formatter](#recommended-c++-code-formatter)
 - [Recommended Cross-Platform IDE for C++23](#recommended-cross-platform-ide)
     - [CLion: A Cross-Platform IDE for C and C++ by JetBrains](#clion-cross-platform-ide)
     - [Visual Studio Code: A Cross-Platform Code Editor by Microsoft](#vscode-cross-platform-ide)
-- [GoogleTest: Google's C++ test framework](#google-c++-test-framework)
 
 ## <a name="ubuntu-platform">Build applications on Ubuntu platform</a>
 
@@ -330,44 +327,14 @@ cd tools
 cd ..
 ```
 
-## <a name="recommended-c++-style-guides">Recommended C++ Style Guides</a>
-
-1. [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
-2. [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
-
-`cpplint` - static code checker for C++. `cpplint` is a command-line tool to
-check C/C++ files for style issues following Google's C++ style guide.
-
-`clang-tidy` is a clang-based C++ “linter” tool. Its purpose is to provide an
-extensible framework for diagnosing and fixing typical programming errors, like
-style violations, interface misuse, or bugs that can be deduced via static
-analysis.
-
-## <a name="recommended-c++-code-formatter">Recommended C++ code formatter</a>
-
-`clang-format` is a widely-used C++ code formatter. It provides an option to
-define code style options in YAML-formatted files — named `.clang-format` or
-`_clang-format` — and these files often become a part of your project where you
-keep all code style rules. It is highly recommended to format your changed C++
-code before opening pull requests, which will save you and the reviewers' time.
-
 ## <a name="recommended-cross-platform-ide">Recommended Cross-Platform IDE for C++23</a>
 
 ### <a name="clion-cross-platform-ide">CLion: A Cross-Platform IDE for C and C++ by JetBrains</a>
 
 * [CLion](https://www.jetbrains.com/clion/)
 * [CLion Docker toolchain](https://www.jetbrains.com/help/clion/clion-toolchains-in-docker.html)
-* [CLion ClangFormat code formatter](https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html)
 
 ### <a name="vscode-cross-platform-ide">Visual Studio Code: A Cross-Platform Code Editor by Microsoft</a>
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VSCode Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
-* [VSCode ClangFormat code formatter](https://code.visualstudio.com/docs/cpp/cpp-ide)
-
-## <a name="google-c++-test-framework">GoogleTest: Google's C++ test framework</a>
-
-* [GoogleTest](https://github.com/google/googletest)
-* [GoogleTest User’s Guide](https://google.github.io/googletest/)
-* [GTest Reference](docs/GTestReference.png)
-  ![GTest Reference](docs/GTestReference.png)
