@@ -1,10 +1,17 @@
-cmake_minimum_required(VERSION 3.30)
-project(ct4)
+cmake_minimum_required(VERSION 3.28)
+project(ct4 CXX)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 include(GNUInstallDirs)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+if (CMAKE_SYSTEM_PROCESSOR MATCHES "(x86)|(X86)|(amd64)|(AMD64)")
+    set(X86 TRUE)
+else ()
+    set(X86 FALSE)
+endif ()
 
 find_package(benchmark CONFIG REQUIRED)
 find_package(GTest CONFIG REQUIRED)
@@ -14,6 +21,12 @@ set(BLA_STATIC ON)
 find_package(BLAS)
 
 find_package(Threads REQUIRED)
+
+# Set the CMAKE_PREFIX_PATH if necessary
+if (APPLE)
+    set(CMAKE_PREFIX_PATH "/opt/homebrew/opt/libomp" CACHE PATH "Path to OpenMP")
+    message("Path to Apple OpenMP: ${CMAKE_PREFIX_PATH}")
+endif ()
 
 set(OpenMP_RUNTIME_MSVC experimental) # needed to use OpenMP > 2.0
 find_package(OpenMP REQUIRED COMPONENTS CXX)
@@ -59,10 +72,12 @@ target_Link_libraries(bench_nearest_neighbor PRIVATE
 # Cache and memory
 ###############################################################################
 
-add_executable(cache_information
-        cache_information.cpp)
+if (X86)
 
-target_link_libraries(cache_information PRIVATE my_cpuid)
+    add_executable(cache_information cache_information.cpp)
+    target_link_libraries(cache_information PRIVATE my_cpuid)
+
+endif () # X86
 
 
 add_library(gemm STATIC
@@ -104,42 +119,46 @@ target_link_libraries(test_gemm PRIVATE gemm GTest::gtest_main)
 # Single instruction multiple data
 ###############################################################################
 
-add_library(saxpy STATIC saxpy.cpp saxpy.h
-        get_best_instructions.h
-        saxpy_hand.cpp)
-target_include_directories(saxpy PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_BINARY_DIR})
-target_link_Libraries(saxpy PRIVATE my_cpuid)
+if (X86)
 
-if (MSVC)
-    set(ARCH_FLAG "/arch:")
-else ()
-    set(ARCH_FLAG "-m")
-endif ()
+    add_library(saxpy STATIC saxpy.cpp saxpy.h
+            get_best_instructions.h
+            saxpy_hand.cpp)
+    target_include_directories(saxpy PRIVATE
+            ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_BINARY_DIR})
+    target_link_Libraries(saxpy PRIVATE my_cpuid)
 
-set_property(SOURCE saxpy_hand.cpp APPEND PROPERTY
-        COMPILE_OPTIONS ${ARCH_FLAG}avx2)
+    if (MSVC)
+        set(ARCH_FLAG "/arch:")
+    else ()
+        set(ARCH_FLAG "-m")
+    endif ()
+
+    set_property(SOURCE saxpy_hand.cpp APPEND PROPERTY
+            COMPILE_OPTIONS ${ARCH_FLAG}avx2)
 
 
-set(INST default)
-configure_file(saxpy.cpp.in saxpy_${INST}.cpp @ONLY)
-target_sources(saxpy PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/saxpy_${INST}.cpp)
-foreach (ARCH IN ITEMS sse4.2 avx2 avx512f)
-    string(REPLACE "." "" INST ${ARCH})
+    set(INST default)
     configure_file(saxpy.cpp.in saxpy_${INST}.cpp @ONLY)
-    set_property(SOURCE "${CMAKE_CURRENT_BINARY_DIR}/saxpy_${INST}.cpp"
-            APPEND PROPERTY COMPILE_OPTIONS "${ARCH_FLAG}${ARCH}")
     target_sources(saxpy PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/saxpy_${INST}.cpp)
-endforeach ()
+    foreach (ARCH IN ITEMS sse4.2 avx2 avx512f)
+        string(REPLACE "." "" INST ${ARCH})
+        configure_file(saxpy.cpp.in saxpy_${INST}.cpp @ONLY)
+        set_property(SOURCE "${CMAKE_CURRENT_BINARY_DIR}/saxpy_${INST}.cpp"
+                APPEND PROPERTY COMPILE_OPTIONS "${ARCH_FLAG}${ARCH}")
+        target_sources(saxpy PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/saxpy_${INST}.cpp)
+    endforeach ()
 
 
-add_executable(bench_saxpy bench_saxpy.cpp)
-target_link_libraries(bench_saxpy PRIVATE saxpy benchmark::benchmark)
+    add_executable(bench_saxpy bench_saxpy.cpp)
+    target_link_libraries(bench_saxpy PRIVATE saxpy benchmark::benchmark)
 
-if (BLAS_FOUND)
-    target_link_libraries(bench_saxpy PRIVATE BLAS::BLAS)
-    target_compile_definitions(bench_saxpy PRIVATE CT_BLAS=1)
-endif ()
+    if (BLAS_FOUND)
+        target_link_libraries(bench_saxpy PRIVATE BLAS::BLAS)
+        target_compile_definitions(bench_saxpy PRIVATE CT_BLAS=1)
+    endif ()
+
+endif () # X86
 
 
 ###############################################################################
@@ -150,7 +169,6 @@ add_library(clamp_loop STATIC clamp_loop.cpp
         clamp_loop.h)
 
 
-
 add_executable(bench_clamp_loop bench_clamp_loop.cpp)
 target_link_Libraries(bench_clamp_loop PRIVATE clamp_loop benchmark::benchmark_main)
 
@@ -159,5 +177,3 @@ target_link_Libraries(bench_clamp_loop PRIVATE clamp_loop benchmark::benchmark_m
 ###############################################################################
 
 add_executable(page_size_report page_size_report.cpp)
-
-

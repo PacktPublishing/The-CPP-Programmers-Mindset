@@ -10,6 +10,7 @@
 #endif
 
 #include "gemm.h"
+#include "matrix.h"
 
 static void BM_gemm_basic(benchmark::State &state) {
     ct::Matrix<double> a(1000, 1000);
