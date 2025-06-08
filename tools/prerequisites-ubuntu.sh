@@ -16,6 +16,11 @@ TZ=Etc/UTC apt-get update && apt-get install -y \
   python3-pip \
   libboost-all-dev \
   libeigen3-dev \
+  libbenchmark-dev \
+  libomp-dev \
+  libopenblas-dev \
+  libspdlog-dev \
+  rapidjson-dev \
   tree &&
   rm -rf /var/lib/apt/lists/*
 
