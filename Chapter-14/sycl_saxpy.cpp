@@ -16,7 +16,7 @@ void ct::sycl_saxpy(float a, const float *x, float *y, int N) {
         sycl::accessor x_access(x_buf, handle, sycl::read_only);
         sycl::accessor y_access(y_buf, handle, sycl::read_write);
 
-        handle.parallel_for(N, [=](auto i) {
+        handle.parallel_for(vec_range, [=](auto i) {
             y_access[i] = a * x_access[i] + y_access[i];
         });
     });
