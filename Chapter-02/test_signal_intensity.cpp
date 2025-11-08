@@ -1,9 +1,6 @@
-
-
 #include "signal_intensity.hpp"
 
 #include <gtest/gtest.h>
-
 
 
 #include "intensity_grid_search.hpp"
@@ -11,7 +8,6 @@
 
 
 TEST(SignalIntensity, TestGridSearchClosestSignal) {
-
     auto pos = ct::find_closest_signal_grid_search(6, 6, 5.0, {3, 3});
 
     // The closest signal is at (4, 4)

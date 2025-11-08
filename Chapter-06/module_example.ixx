@@ -17,12 +17,13 @@ export inline int inline_fn(int c) { return c; }
 // defined elsewhere
 export struct MyStruct;
 
-export template <typename T>
+export template<typename T>
 T template_fn(T e) { return e; }
 
-export template <typename T>
+export template<typename T>
 class TemplateClass {
     T f;
+
 public:
     T get_f() { return f; }
 };

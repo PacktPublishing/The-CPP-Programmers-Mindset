@@ -18,7 +18,7 @@
 
 int main() {
 #ifdef __linux__
-    std::cout << "page size: " << sysconf(_SC_PAGESIZE)  << 'B' << std::endl;
+    std::cout << "page size: " << sysconf(_SC_PAGESIZE) << 'B' << std::endl;
 #elif __WIN32__
     SYSTEM_INFO info;
     GetSystemInfo(&info);

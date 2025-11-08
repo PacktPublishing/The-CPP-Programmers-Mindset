@@ -7,7 +7,7 @@
 ct::TempSensor::~TempSensor() = default;
 
 void ct::check_sensors(std::span<const TempSensor *> sensors, float threshold) {
-    for (const auto& sensor : sensors) {
+    for (const auto &sensor: sensors) {
         auto temp = sensor->temperature_kelvin();
         if (temp > threshold) {
             throw std::runtime_error(

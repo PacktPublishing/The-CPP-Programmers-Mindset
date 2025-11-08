@@ -9,7 +9,6 @@
 #include <span>
 
 namespace ct {
-
 struct Point2D {
     float x;
     float y;
@@ -20,11 +19,9 @@ inline float distance(const Point2D &p1, const Point2D &p2) {
 }
 
 float nearest_neighbor_distance_seq(std::span<const Point2D> points);
+
 float nearest_neighbor_distance_omp(std::span<const Point2D> points);
-
-
 }
-
 
 
 #endif //CT_MIN_DISTANCE_OPENMP_H

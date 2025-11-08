@@ -7,7 +7,6 @@
 
 ct::Pos ct::find_closest_signal_grid_search(
     int dim_x, int dim_y, double detection_intensity, Pos start) {
-
     std::vector<Pos> signals;
     signals.reserve(dim_x * dim_y);
 
@@ -19,11 +18,11 @@ ct::Pos ct::find_closest_signal_grid_search(
         }
     }
 
-    auto dist_to_start = [&start](const Pos& pos) {
+    auto dist_to_start = [&start](const Pos &pos) {
         return std::max(std::abs(pos.x - start.x), std::abs(pos.y - start.y));
     };
 
-    auto ordering = [&dist_to_start](const Pos& p1, const Pos& p2) {
+    auto ordering = [&dist_to_start](const Pos &p1, const Pos &p2) {
         return dist_to_start(p1) < dist_to_start(p2);
     };
 

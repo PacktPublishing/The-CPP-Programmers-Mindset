@@ -10,9 +10,7 @@
 using namespace ct;
 
 
-
 class GemmTest : public ::testing::Test {
-
 protected:
     static constexpr ptrdiff_t n_rows = 250;
     static constexpr ptrdiff_t n_cols = 250;
@@ -27,11 +25,7 @@ protected:
         std::fill_n(a.data(), a.size(), 1.0);
         std::fill_n(b.data(), b.size(), 1.0);
     }
-
-
 };
-
-
 
 
 TEST_F(GemmTest, TestBlockedAgainstBasic) {

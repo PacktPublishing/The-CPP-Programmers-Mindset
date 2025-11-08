@@ -11,10 +11,9 @@
 
 
 namespace ct {
-
 void clamp_min(std::span<uint16_t> x);
-void clamp_conditional(std::span<uint16_t> x);
 
+void clamp_conditional(std::span<uint16_t> x);
 }
 
 

@@ -29,17 +29,19 @@ using StdSet = std::set<int64_t>;
 using StdUSet = std::unordered_set<int64_t>;
 using StdDeque = std::deque<int64_t>;
 
-inline void push(StdVec& v, int64_t i) {
+inline void push(StdVec &v, int64_t i) {
     v.push_back(i);
 }
 
-inline void push(StdFList& v, int64_t i) {
+inline void push(StdFList &v, int64_t i) {
     v.push_front(i);
 }
-inline void push(StdList& v, int64_t i) {
+
+inline void push(StdList &v, int64_t i) {
     v.push_back(i);
 }
-inline void push(StdDeque& v, int64_t i) {
+
+inline void push(StdDeque &v, int64_t i) {
     v.push_back(i);
 }
 
@@ -51,18 +53,17 @@ using BoostVec = boost::container::vector<int64_t>;
 using BoostFlatSet = boost::container::flat_set<int64_t>;
 using BoostStableVec = boost::container::stable_vector<int64_t>;
 
-inline void push(BoostStableVec& v, int64_t i) {
+inline void push(BoostStableVec &v, int64_t i) {
     v.push_back(i);
 }
 
 
-
-inline void push(BoostVec& v, int64_t i) {
+inline void push(BoostVec &v, int64_t i) {
     v.push_back(i);
 }
 
-template <typename Container>
-inline void push(Container& v, int64_t i) {
+template<typename Container>
+inline void push(Container &v, int64_t i) {
     v.insert(i);
 }
 

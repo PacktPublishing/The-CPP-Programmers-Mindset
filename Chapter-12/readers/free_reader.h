@@ -53,7 +53,6 @@
 #define RE_COORD RE_DMS RE_OR RE_DD
 
 namespace duckies {
-
 // Groups for date pattern
 inline constexpr int iso_date_year_group = 1;
 inline constexpr int iso_date_month_group = 2;
@@ -67,14 +66,15 @@ inline constexpr int mdy_date_year_group = 9;
 
 class FreeTextReader : public FileReader {
 public:
-	using typename FileReader::Data;
-	using typename FileReader::FSPath;
+    using typename FileReader::Data;
+    using typename FileReader::FSPath;
 
-	void read_stream(Data& data, std::istream& view) const;
-	void read_file(Data& data, const FSPath& path) const override;
-	std::string_view supported_file_extension() const noexcept override;
+    void read_stream(Data &data, std::istream &view) const;
+
+    void read_file(Data &data, const FSPath &path) const override;
+
+    std::string_view supported_file_extension() const noexcept override;
 };
-
 } // namespace duckies
 
 #endif // DUCKIES_FREE_READER_H

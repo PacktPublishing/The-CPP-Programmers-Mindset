@@ -1,18 +1,23 @@
 {
-  "name" : "c5",
-  "version-string" : "1.0.0",
-  "builtin-baseline" : "d320630b28aeb59b24424eb2a7ef3905314107a1",
-  "dependencies" : [ {
-    "name" : "abseil",
-    "version>=" : "20240722.0"
-  }, {
-    "name" : "boost-container",
-    "version>=" : "1.86.0"
-  }, {
-    "name" : "boost-container-hash",
-    "version>=" : "1.86.0"
-  }, {
-    "name" : "boost-unordered",
-    "version>=" : "1.86.0"
-  } ]
+  "name": "c5",
+  "version-string": "1.0.0",
+  "builtin-baseline": "d320630b28aeb59b24424eb2a7ef3905314107a1",
+  "dependencies": [
+    {
+      "name": "abseil",
+      "version>=": "20240722.0"
+    },
+    {
+      "name": "boost-container",
+      "version>=": "1.86.0"
+    },
+    {
+      "name": "boost-container-hash",
+      "version>=": "1.86.0"
+    },
+    {
+      "name": "boost-unordered",
+      "version>=": "1.86.0"
+    }
+  ]
 }

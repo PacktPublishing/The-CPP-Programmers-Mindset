@@ -10,7 +10,7 @@
 #include "saxpy.h"
 #include "get_best_instructions.h"
 
-inline constexpr size_t N = 5*1024;
+inline constexpr size_t N = 5 * 1024;
 
 
 #if CT_BLAS
@@ -76,7 +76,7 @@ int main(int argc, char **argv) {
                                                  benchmark::ClobberMemory();
                                              }
                                          }
-                );
+            );
         case ct::SIMDInstructions::SSE42:
             benchmark::RegisterBenchmark("saxpy_sse42",
                                          [](benchmark::State &state) {

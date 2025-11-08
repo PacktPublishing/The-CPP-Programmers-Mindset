@@ -61,7 +61,6 @@ public:
 
 std::vector<SummaryStatistics>
 compute_summary_statistics(const Configuration &config, std::span<std::string> sources);
-
 } // namespace ct
 
 #endif //CHAPTER_02_SUMMARY_STATISTICS_HPP

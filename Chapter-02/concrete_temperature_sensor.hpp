@@ -6,7 +6,6 @@
 #include <string>
 
 namespace ct {
-
 class ConcreteTemperatureSensor : public TempSensor {
     std::string m_id;
 
@@ -17,9 +16,9 @@ class ConcreteTemperatureSensor : public TempSensor {
     double m_temperature;
 
 public:
-
     ConcreteTemperatureSensor(std::string id, float temperature) noexcept
-        : m_id{std::move(id)}, m_temperature{temperature} {}
+        : m_id{std::move(id)}, m_temperature{temperature} {
+    }
 
     ~ConcreteTemperatureSensor() override;
 
@@ -27,8 +26,6 @@ public:
 
     [[nodiscard]] float temperature_kelvin() const noexcept override;
 };
-
-
 }
 
 #endif //CHAPTER_02_CONCRETE_TEMPERATURE_SENSOR_HPP

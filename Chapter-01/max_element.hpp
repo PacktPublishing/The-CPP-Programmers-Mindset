@@ -33,8 +33,6 @@ RETURN max
 
 
 namespace ct {
-
-
 template<typename Container>
 typename Container::value_type max_element(const Container &container) {
     auto begin = container.begin();
@@ -56,8 +54,8 @@ typename Container::value_type max_element(const Container &container) {
 
 
 namespace basic_concept {
-template <typename T>
-concept OrderableContainer = requires(const T& t)
+template<typename T>
+concept OrderableContainer = requires(const T &t)
 {
     // Has a dependent type called "value_type", which is ordered by <
     requires std::totally_ordered<typename T::value_type>;
@@ -66,20 +64,17 @@ concept OrderableContainer = requires(const T& t)
     t.begin();
     t.end();
 };
-
 } // namespace basic_concept
 
 
 namespace derived_concept {
-
-template <typename T>
+template<typename T>
 concept OrderableContainer = std::ranges::input_range<const T>
-    && std::totally_ordered<std::ranges::range_value_t<const T>>
-    && std::copy_constructible<std::ranges::range_value_t<const T>>;
+                             && std::totally_ordered<std::ranges::range_value_t<const T> >
+                             && std::copy_constructible<std::ranges::range_value_t<const T> >;
 
 
-
-template <OrderableContainer Container>
+template<OrderableContainer Container>
 std::ranges::range_value_t<Container> max_element(const Container &container) {
     auto begin = std::ranges::begin(container);
     const auto end = std::ranges::end(container);
@@ -99,14 +94,7 @@ std::ranges::range_value_t<Container> max_element(const Container &container) {
 
     return max;
 }
-
-
-
 }
-
-
-
-
 } // namespace ct
 
 

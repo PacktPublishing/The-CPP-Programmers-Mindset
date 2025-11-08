@@ -3,8 +3,6 @@
 //
 
 
-
-
 #include "saxpy.h"
 
 #include <span>
@@ -17,8 +15,8 @@ void ct::saxpy_hand(float a, std::span<const float> x, std::span<float> y) {
 
     size_t size = y.size();
     size_t pos = 0;
-    const auto* x_data = x.data();
-    auto* y_data = y.data();
+    const auto *x_data = x.data();
+    auto *y_data = y.data();
 
     for (; pos + vec_size <= size; pos += vec_size) {
         auto ymm1 = _mm256_loadu_ps(x_data);
@@ -32,7 +30,7 @@ void ct::saxpy_hand(float a, std::span<const float> x, std::span<float> y) {
 
     // Clear up the < vec_size terms that remain
     const size_t remainder = size - pos;
-    for (size_t i=0; i < remainder; ++i) {
+    for (size_t i = 0; i < remainder; ++i) {
         y_data[i] += a * x_data[i];
     }
 }

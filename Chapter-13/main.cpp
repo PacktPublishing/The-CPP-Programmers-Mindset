@@ -11,7 +11,7 @@ void do_work(std::span<int, 2> out, int arg, int divisor) {
 }
 
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     MPI_Init(&argc, &argv); // Initialize the runtime
 
     int n_nodes = 0;
@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
     // Distribute data/work to each of the nodes
     int arg = 0;
     if (rank == 0) {
-        for (int other_node=1; other_node<n_nodes; other_node++) {
+        for (int other_node = 1; other_node < n_nodes; other_node++) {
             MPI_Send(&other_node, 1, MPI_INT, other_node, 0, MPI_COMM_WORLD);
         }
     } else {
@@ -32,15 +32,15 @@ int main(int argc, char** argv) {
     }
 
     // Do the work
-    std::array<int, 2> out{};
+    std::array < int, 2 > out{};
     std::mt19937 gen(0xABBA ^ (rank + n_nodes));
     int my_divisor = std::uniform_int_distribution(2, 25)(gen);
     do_work(out, arg, my_divisor);
 
     // Retrieve the results from the other nodes
     if (rank == 0) {
-        std::array<int, 2> other_out {};
-        for (int other_node=1; other_node<n_nodes; other_node++) {
+        std::array < int, 2 > other_out{};
+        for (int other_node = 1; other_node < n_nodes; other_node++) {
             MPI_Recv(other_out.data(), 2, MPI_INT, other_node, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             out[0] += other_out[0];
             out[1] += other_out[1];

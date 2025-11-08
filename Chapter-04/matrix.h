@@ -12,7 +12,6 @@
 #include "matrix_view.h"
 
 namespace ct {
-
 /**
  * @class Matrix
  * @brief A class that represents a matrix with automatic memory management and specified alignment.
@@ -51,7 +50,6 @@ public:
         return MatrixView<std::add_const_t<T> >(this->data(), this->rows(), this->cols(), this->order());
     }
 };
-
 } // namespace ct
 
 #endif //CT_MATRIX_H

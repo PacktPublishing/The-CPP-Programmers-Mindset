@@ -6,19 +6,17 @@
 #include <iosfwd>
 
 namespace duckies {
-
 class JSONReader : public FileReader {
-
 public:
-	using FileReader::Data;
-	using FileReader::FSPath;
+    using FileReader::Data;
+    using FileReader::FSPath;
 
-	void read_stream(Data& data, std::istream& stream) const;
-	void read_file(Data& data, const FSPath& path) const override;
+    void read_stream(Data &data, std::istream &stream) const;
 
-	std::string_view supported_file_extension() const noexcept override;
+    void read_file(Data &data, const FSPath &path) const override;
+
+    std::string_view supported_file_extension() const noexcept override;
 };
-
 } // namespace duckies
 
 #endif // DUCKIES_JSON_READER_H

@@ -13,7 +13,6 @@
 #include <span>
 
 namespace ct {
-
 using std::size_t;
 using std::ptrdiff_t;
 
@@ -188,7 +187,6 @@ T matrix_max_abs_difference(const MatrixView<T> &lhs, const MatrixView<T> &rhs) 
 
     return max_diff;
 }
-
-}//namespace ct
+} //namespace ct
 
 #endif //CT_MATRIX_VIEW_H

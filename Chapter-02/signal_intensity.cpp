@@ -18,7 +18,6 @@ constexpr std::array<SourcePos, 3> sources{
     SourcePos{5, 0, 5.0, 4.0},
     SourcePos{7, 5, 4.0, 0.2}
 };
-
 } // namespace
 
 double ct::compute_signal_intensity(int x, int y) {
@@ -33,4 +32,3 @@ double ct::compute_signal_intensity(int x, int y) {
 
     return intensity;
 }
-

@@ -5,7 +5,6 @@
 using namespace ct;
 
 void MyExportedClass::exported_method() {
-
     std::cout << "Hello from exported method" << std::endl;
 }
 
