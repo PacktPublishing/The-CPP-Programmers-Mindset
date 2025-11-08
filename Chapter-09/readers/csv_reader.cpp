@@ -102,7 +102,11 @@ void CSVReader::read_view(Data& data, std::string_view view) const
 		return;
 	}
 
-	read_csv(data, csv);
+	try {
+		read_csv(data, csv);
+	} catch (std::invalid_argument &e) {
+		spdlog::warn(e.what());
+	}
 }
 
 void CSVReader::read_file(Data& data, const FSPath& path) const
@@ -113,7 +117,11 @@ void CSVReader::read_file(Data& data, const FSPath& path) const
 		return;
 	}
 
-	read_csv(data, csv);
+	try {
+		read_csv(data, csv);
+	} catch (std::invalid_argument &e) {
+		spdlog::warn(e.what());
+	}
 }
 
 std::string_view CSVReader::supported_file_extension() const noexcept
