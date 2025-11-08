@@ -1,5 +1,3 @@
-
-
 #include "function_with_noise.hpp"
 
 
@@ -7,7 +5,6 @@
 
 
 TEST(FunctionWithNoise, ValueIsCloseToDeterministic) {
-
     ct::FunctionWithNoise fn(12345, 0.0, 1.0);
 
     auto fn0 = fn(0.0);

@@ -10,4 +10,4 @@ if (ENABLE_TESTS)
             ctode_euler
             GTest::gtest_main
     )
-endif()
+endif ()

@@ -6,9 +6,6 @@
 #include "my_cpuid.h"
 
 
-
-
-
 int main() {
     unsigned cpuid_registers[4];
 
@@ -34,7 +31,8 @@ int main() {
         "Null", "Data", "Instruction", "Unified"
     };
 
-    for (unsigned i = 0; i < 6; ++i) { // Iterate through available cache levels
+    for (unsigned i = 0; i < 6; ++i) {
+        // Iterate through available cache levels
         my_cpuid(cache_leaf, i, cpuid_registers);
 
         // EAX
@@ -62,7 +60,7 @@ int main() {
         unsigned size = line_size * partitions * associativity * sets;
 
         std::cout << "L" << level << " " << cache_types[type]
-                  << ": " << size / 1024 << " KiB" << std::endl;
+                << ": " << size / 1024 << " KiB" << std::endl;
     }
 
     return 0;

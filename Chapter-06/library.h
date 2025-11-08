@@ -5,8 +5,6 @@
 #include "mysharedlibrary_export.h"
 
 namespace ct {
-
-
 class MYSHAREDLIBRARY_EXPORT MyExportedClass {
 public:
     void exported_method();
@@ -16,12 +14,8 @@ public:
 MYSHAREDLIBRARY_EXPORT int exported_function(int arg);
 
 namespace dtl {
-
 class UnexportedInternalClass;
-
 }
-
-
 }
 
 

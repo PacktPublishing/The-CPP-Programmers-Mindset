@@ -11,10 +11,9 @@
 
 namespace cg = cooperative_groups;
 
-__global__ void compute_2norm(const float* vectors,
-                              float* norms,
-                              unsigned n_vectors)
-{
+__global__ void compute_2norm(const float *vectors,
+                              float *norms,
+                              unsigned n_vectors) {
     constexpr unsigned vector_size = 32;
 
     auto grid = cg::this_grid();
@@ -22,12 +21,12 @@ __global__ void compute_2norm(const float* vectors,
     auto warp = cg::tiled_partition<32>(block);
 
     // For simplicity, assume that a block is 32 threads
-    const unsigned my_vector_offset = grid.block_rank()*vector_size;
+    const unsigned my_vector_offset = grid.block_rank() * vector_size;
 
     float my_value = vectors[my_vector_offset + warp.thread_rank()];
     float my_norm = my_value * my_value;
 
-    for (int offset=16; offset > 0; offset >>= 1) {
+    for (int offset = 16; offset > 0; offset >>= 1) {
         my_norm += warp.shfl_down(my_norm, offset);
     }
 
@@ -51,13 +50,12 @@ int main() {
         raw_pointer_cast(vectors.data()),
         raw_pointer_cast(norms.data()),
         num_vectors
-        );
+    );
     cudaDeviceSynchronize();
 
     std::cout << "Norms (" << norms.size() << "): \n";
-    for (const auto& norm : norms) {
+    for (const auto &norm: norms) {
         std::cout << norm << "\n";
     }
     std::cout << "Done\n";
-
 }

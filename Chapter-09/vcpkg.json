@@ -1,18 +1,23 @@
 {
-  "name" : "curious-rubber-duckies",
-  "version-string" : "1.0.0",
-  "builtin-baseline" : "903956eff7cb94774a9e805ff573c000afc43e3e",
-  "dependencies" : [ {
-    "name" : "boost-program-options",
-    "version>=" : "1.88.0"
-  }, {
-    "name" : "spdlog",
-    "version>=" : "1.15.3"
-  }, {
-    "name" : "p-ranav-csv2",
-    "version>=" : "2020-12-14#4"
-  }, {
-    "name" : "rapidjson",
-    "version>=" : "2025-02-26"
-  } ]
+  "name": "curious-rubber-duckies",
+  "version-string": "1.0.0",
+  "builtin-baseline": "903956eff7cb94774a9e805ff573c000afc43e3e",
+  "dependencies": [
+    {
+      "name": "boost-program-options",
+      "version>=": "1.88.0"
+    },
+    {
+      "name": "spdlog",
+      "version>=": "1.15.3"
+    },
+    {
+      "name": "p-ranav-csv2",
+      "version>=": "2020-12-14#4"
+    },
+    {
+      "name": "rapidjson",
+      "version>=": "2025-02-26"
+    }
+  ]
 }

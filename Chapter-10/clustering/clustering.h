@@ -1,4 +1,2 @@
-
 namespace duckies {
-
 } // namespace duckies

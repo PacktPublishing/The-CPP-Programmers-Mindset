@@ -1,6 +1,6 @@
 if (ENABLE_TESTS)
     find_package(GTest CONFIG REQUIRED)
-endif()
+endif ()
 include(GenerateExportHeader)
 
 # Import the two solver's that we've implemented
@@ -19,4 +19,4 @@ if (ENABLE_TESTS)
     add_executable(test_ctode test_ctode.cpp)
     target_link_libraries(test_ctode PRIVATE
             ctode GTest::gtest_main)
-endif()
+endif ()

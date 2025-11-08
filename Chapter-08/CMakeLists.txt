@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.30)
 
 
-
 project(curious_rubber_duckies)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -16,11 +15,10 @@ find_package(spdlog CONFIG REQUIRED)
 add_executable(duckies main.cpp)
 
 
-
 target_link_libraries(duckies PRIVATE
-    Boost::program_options
-    OpenMP::OpenMP_CXX
-    spdlog::spdlog
+        Boost::program_options
+        OpenMP::OpenMP_CXX
+        spdlog::spdlog
 )
 
 

@@ -150,7 +150,6 @@ add_library(clamp_loop STATIC clamp_loop.cpp
         clamp_loop.h)
 
 
-
 add_executable(bench_clamp_loop bench_clamp_loop.cpp)
 target_link_Libraries(bench_clamp_loop PRIVATE clamp_loop benchmark::benchmark_main)
 

@@ -10,4 +10,4 @@ if (ENABLE_TESTS)
             ctode_rk4
             GTest::gtest_main
     )
-endif()
+endif ()

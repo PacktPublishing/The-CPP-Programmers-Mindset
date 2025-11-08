@@ -2,14 +2,13 @@
 
 
 std::vector<ct::SummaryStatistics> ct::compute_summary_statistics(const Configuration &config,
-    std::span<std::string> sources) {
-
+                                                                  std::span<std::string> sources) {
     std::vector<SummaryStatistics> stats;
     stats.reserve(sources.size());
 
-    for (const auto& src : sources ) {
+    for (const auto &src: sources) {
         stats.emplace_back(0.0, 0.0, 0.0, 0.0);
-        auto& these_stats = stats.back();
+        auto &these_stats = stats.back();
 
         // simulate computing the stats
         if (config.include_mean()) {

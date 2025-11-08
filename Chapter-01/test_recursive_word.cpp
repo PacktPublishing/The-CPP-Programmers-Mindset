@@ -1,5 +1,3 @@
-
-
 #include "recursive_word.hpp"
 
 #include <gtest/gtest.h>
@@ -7,7 +5,6 @@
 #include <string>
 
 using namespace ct;
-
 
 
 TEST(RecursiveWord, TestRecursiveOneLetterWord) {
@@ -74,7 +71,6 @@ TEST(RecursiveWord, TestNonRecursiveLongWord) {
 
     EXPECT_EQ(end, 16);
 }
-
 
 
 TEST(RecursiveWord, TestRangesOneLetterWord) {

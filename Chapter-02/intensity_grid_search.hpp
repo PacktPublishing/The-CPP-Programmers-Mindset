@@ -7,7 +7,6 @@ namespace ct {
 Pos find_closest_signal_grid_search(
     int dim_x, int dim_y, double signal_intensity, Pos start
 );
-
 } // namespace ct
 
 #endif //CHAPTER_02_INTENSITY_GRID_SEARCH_HPP

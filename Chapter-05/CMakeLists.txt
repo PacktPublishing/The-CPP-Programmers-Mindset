@@ -14,7 +14,6 @@ find_package(benchmark CONFIG REQUIRED benchmark_main)
 find_package(GTest CONFIG REQUIRED gtest_main)
 
 
-
 add_library(bench_container_base INTERFACE
         bench_containers.h
 )

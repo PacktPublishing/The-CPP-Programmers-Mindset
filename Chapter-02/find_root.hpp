@@ -6,8 +6,6 @@
 #include <functional>
 
 namespace ct {
-
-
 /*
  * These helper functions are here to facilitate the bisection algorithm.
  * The first compares two floating numbers and returns true if either the
@@ -18,7 +16,7 @@ namespace ct {
  */
 
 
-template <typename Real>
+template<typename Real>
 bool compare_reals_equal(Real a, Real b) {
     // Machine precision for the Real type
     constexpr Real tol = std::numeric_limits<Real>::epsilon();
@@ -35,13 +33,13 @@ bool compare_reals_equal(Real a, Real b) {
 }
 
 
-template <typename Real>
+template<typename Real>
 constexpr Real midpoint(Real a, Real b) {
-    return (a + b) / Real { 2 };
+    return (a + b) / Real{2};
 }
 
-template <typename Function, typename Real>
-Real find_root_bisect(Function&& function, Real pos, Real neg, Real tol) {
+template<typename Function, typename Real>
+Real find_root_bisect(Function &&function, Real pos, Real neg, Real tol) {
     auto fpos = function(pos);
 
     // Driving loop

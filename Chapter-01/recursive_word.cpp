@@ -35,9 +35,10 @@ size_t ct::recursive::end_of_first_word(std::string_view s) noexcept {
 size_t ct::non_recursive::end_of_first_word(std::string_view s) noexcept {
     size_t position = 0;
     int depth = 0;
-    for (const auto& c : s) {
+    for (const auto &c: s) {
         switch (c) {
-            case '[': ++depth; break;
+            case '[': ++depth;
+                break;
             case ']': --depth;
             default:
                 if (depth == 0) {
@@ -50,12 +51,12 @@ size_t ct::non_recursive::end_of_first_word(std::string_view s) noexcept {
 }
 
 
-
 size_t ct::ranges::end_of_first_word(std::string_view s) noexcept {
     int depth = 0;
-    for (const auto [index, chr] : std::views::enumerate(s)) {
+    for (const auto [index, chr]: std::views::enumerate(s)) {
         switch (chr) {
-            case '[': ++depth; break;
+            case '[': ++depth;
+                break;
             case ']': --depth;
             default:
                 if (depth == 0) {

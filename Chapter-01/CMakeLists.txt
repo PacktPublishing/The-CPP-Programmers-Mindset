@@ -10,7 +10,6 @@ find_package(GTest CONFIG REQUIRED)
 include(GoogleTest)
 
 
-
 ####################################################################
 # Understanding algorithms
 ####################################################################
@@ -20,15 +19,13 @@ add_library(max_element INTERFACE
 )
 
 add_executable(test_max_element
-    test_max_element.cpp
+        test_max_element.cpp
 )
 target_link_libraries(test_max_element PRIVATE
         GTest::gtest_main
         max_element
 )
 gtest_discover_tests(test_max_element)
-
-
 
 
 # Recursive algorithms

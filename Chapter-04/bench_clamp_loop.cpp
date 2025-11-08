@@ -11,15 +11,14 @@
 #include "clamp_loop.h"
 
 
-
-static void BM_clamp_loop_min(benchmark::State& state) {
+static void BM_clamp_loop_min(benchmark::State &state) {
     std::vector<uint16_t> x(1'000);
     std::mt19937 rng(std::random_device{}());
     std::uniform_int_distribution<uint16_t> dist(0, std::numeric_limits<uint16_t>::max());
 
     for (auto _: state) {
         state.PauseTiming();
-        for (auto& v : x) {
+        for (auto &v: x) {
             v = dist(rng);
         }
         state.ResumeTiming();
@@ -34,13 +33,13 @@ static void BM_clamp_loop_min(benchmark::State& state) {
 BENCHMARK(BM_clamp_loop_min);
 
 
-static void BM_clamp_loop_conditional(benchmark::State& state) {
+static void BM_clamp_loop_conditional(benchmark::State &state) {
     std::vector<uint16_t> x(1'000);
     std::mt19937 rng(std::random_device{}());
     std::uniform_int_distribution<uint16_t> dist(0, std::numeric_limits<uint16_t>::max());
     for (auto _: state) {
         state.PauseTiming();
-        for (auto& v : x) {
+        for (auto &v: x) {
             v = dist(rng);
         }
         state.ResumeTiming();

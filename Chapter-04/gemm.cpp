@@ -77,10 +77,10 @@ void ct::dgemm_blocked(MatrixView<const double> A, MatrixView<const double> B, M
                         auto j_index = j_block + j;
                         for (ptrdiff_t k = 0; k < k_bound; ++k) {
                             auto k_index = k_block + k;
-                            auto& a_val = A.data()[i_index * A.cols() + k_index];
-                            auto& b_val = B.data()[k_index * B.cols() + j_index];
-                            auto& t_val = tile.data()[i * block_size + j];
-                            t_val += a_val*b_val;
+                            auto &a_val = A.data()[i_index * A.cols() + k_index];
+                            auto &b_val = B.data()[k_index * B.cols() + j_index];
+                            auto &t_val = tile.data()[i * block_size + j];
+                            t_val += a_val * b_val;
                         }
                     }
                 }
@@ -90,8 +90,8 @@ void ct::dgemm_blocked(MatrixView<const double> A, MatrixView<const double> B, M
                 auto i_index = i_block + i;
                 for (ptrdiff_t j = 0; j < j_bound; ++j) {
                     auto j_index = j_block + j;
-                    auto &c_elt = C.data()[i_index*C.cols() + j_index];
-                    auto& t_val = tile.data()[i * block_size + j];
+                    auto &c_elt = C.data()[i_index * C.cols() + j_index];
+                    auto &t_val = tile.data()[i * block_size + j];
                     c_elt = beta * c_elt + alpha * t_val;
                 }
             }
