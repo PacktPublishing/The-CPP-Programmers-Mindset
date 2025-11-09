@@ -28,7 +28,7 @@ public:
 
     ~Task() { worker_.join(); }
 
-    bool is_finished() const {
+    bool is_finished() {
         std::lock_guard lk(lock_);
         return is_finished_;
     }
