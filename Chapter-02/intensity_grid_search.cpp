@@ -6,13 +6,13 @@
 #include <stdexcept>
 
 ct::Pos ct::find_closest_signal_grid_search(
-    int dim_x, int dim_y, double detection_intensity, Pos start) {
+    int dim_x, int dim_y, double signal_intensity, Pos start) {
     std::vector<Pos> signals;
     signals.reserve(dim_x * dim_y);
 
     for (int x = 0; x < dim_x; ++x) {
         for (int y = 0; y < dim_y; ++y) {
-            if (compute_signal_intensity(x, y) > detection_intensity) {
+            if (compute_signal_intensity(x, y) > signal_intensity) {
                 signals.emplace_back(x, y);
             }
         }

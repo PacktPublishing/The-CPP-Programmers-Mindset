@@ -41,7 +41,7 @@ public:
 
     void insert(float latitude, float longitude,
                 std::chrono::year_month_day date, std::string descr) {
-        coordinates_.push_back({latitude, longitude});
+        coordinates_.emplace_back(latitude, longitude);
         dates_.emplace_back(date);
         descriptions_.emplace_back(std::move(descr));
     }

@@ -102,7 +102,7 @@ static void BM_BoostHash_Double(benchmark::State &state) {
 }
 
 static void BM_StdHash_String(benchmark::State &state) {
-    std::string test_str("this is a strong that is a far too "
+    std::string test_str("this is a string that is a far too "
         "long to fit in the internal memory");
 
     for (auto _: state) {
@@ -114,7 +114,7 @@ static void BM_StdHash_String(benchmark::State &state) {
 
 
 static void BM_AbslHash_String(benchmark::State &state) {
-    std::string test_str("this is a strong that is a far too "
+    std::string test_str("this is a string that is a far too "
         "long to fit in the internal memory");
 
     for (auto _: state) {
@@ -125,7 +125,7 @@ static void BM_AbslHash_String(benchmark::State &state) {
 }
 
 static void BM_BoostHash_String(benchmark::State &state) {
-    std::string test_str("this is a strong that is a far too "
+    std::string test_str("this is a string that is a far too "
         "long to fit in the internal memory");
 
     for (auto _: state) {
