@@ -6,6 +6,7 @@
 #include <gtest/gtest.h>
 
 #include "gemm.h"
+#include "matrix.h"
 
 using namespace ct;
 

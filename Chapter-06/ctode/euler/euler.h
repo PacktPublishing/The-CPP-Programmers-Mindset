@@ -8,8 +8,8 @@
 namespace ct::ode {
 using ODEFunction = std::function<void(std::span<double>, std::span<const double>)>;
 
-void suler_solver(
-    std::vector<double> &soluton,
+void euler_solver(
+    std::vector<double> &solution,
     std::vector<double> &step_params,
     const ODEFunction &func,
     std::span<const double> initial_condition,

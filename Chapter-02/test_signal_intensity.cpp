@@ -16,7 +16,7 @@ TEST(SignalIntensity, TestGridSearchClosestSignal) {
 }
 
 
-TEST(SignalIntenisty, TestGridSearchExpandingSearch) {
+TEST(SignalIntensity, TestGridSearchExpandingSearch) {
     auto pos = ct::find_closest_signal_range(6, 6, 5.0, {3, 3});
 
     // The closest signal is at (4, 4)

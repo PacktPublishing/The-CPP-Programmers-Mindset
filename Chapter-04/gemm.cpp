@@ -55,9 +55,9 @@ void ct::dgemm_blocked(MatrixView<const double> A, MatrixView<const double> B, M
     // For simplicity, only consider block sizes that are powers of 2
     assert((block_size & (block_size - 1)) == 0);
 
-    assert(a.is_row_major());
-    assert(b.is_row_major());
-    assert(c.is_row_major());
+    assert(A.is_row_major());
+    assert(B.is_row_major());
+    assert(C.is_row_major());
 
     Matrix<double> tile(block_size, block_size);
 

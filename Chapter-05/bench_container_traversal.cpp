@@ -26,7 +26,7 @@ BENCHMARK_TEMPLATE(bench_container_traversal, StdList) -> Arg(256);
 BENCHMARK_TEMPLATE(bench_container_traversal, StdSet) -> Arg(256);
 BENCHMARK_TEMPLATE(bench_container_traversal, StdUSet) -> Arg(256);
 
-BENCHMARK_TEMPLATE(bench_container_traversal, AbslBTreeSet) -> Arg(245);
+BENCHMARK_TEMPLATE(bench_container_traversal, AbslBTreeSet) -> Arg(256);
 BENCHMARK_TEMPLATE(bench_container_traversal, AbslFlatHashSet) -> Arg(256);
 BENCHMARK_TEMPLATE(bench_container_traversal, AbslNodeHashSet) -> Arg(256);
 

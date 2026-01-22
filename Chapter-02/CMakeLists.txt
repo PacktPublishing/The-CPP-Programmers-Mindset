@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.30)
 
 
-project(ct3)
+project(ct2)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -111,7 +111,7 @@ target_link_libraries(test_address_book_record PRIVATE
 )
 gtest_discover_tests(test_address_book_record)
 
-## Classes that represent physical objects[
+## Classes that represent physical objects
 
 
 add_library(temperature_sensors STATIC

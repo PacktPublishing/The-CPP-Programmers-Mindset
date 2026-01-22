@@ -9,7 +9,7 @@ template<typename T>
 T power(T x, unsigned n) {
     if (n == 0) {
         return T{1};
-    };
+    }
     T result = x;
 
     while (--n > 0) {

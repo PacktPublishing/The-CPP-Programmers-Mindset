@@ -48,7 +48,7 @@ static const char program_synopsis_string[] =
 // clang-format off
 static const char program_usage_string[] = 
   R"doc(Parse rubber ducky observation files and perform a clustering analysis to
-find out where are very polite dubugging assistants are coming from.
+find out where our very polite debugging assistants are coming from.
 
 )doc";
 // clang-format on
@@ -118,7 +118,7 @@ void setup_logging(const po::variables_map &args) {
     console_logger->set_level(spdlog::level::info);
   }
 
-  spdlog::info("Fininshed setting up logger");
+  spdlog::info("Finished setting up logger");
 }
 
 void setup_threading(const po::variables_map &args) {
